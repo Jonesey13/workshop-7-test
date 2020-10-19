@@ -101,7 +101,7 @@ To make sure people are aware when there are issues with the build, it can be us
 3. Make the workflow post a different message if the workflow was cancelled.
 
 ### (Stretch goal) Workflow status badge
-Add a [workflow status badge](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository) to your repository.
+Add a [workflow status badge](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge) to your repository.
 
 ## Part 2 (Jenkins)
 
