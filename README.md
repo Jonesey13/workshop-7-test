@@ -1,3 +1,5 @@
+![example workflow name](https://github.com/Jonesey13/workshop-7-test/workflows/Continuous%20Integration/badge.svg)
+
 # Workshop Module 07 & 08
 
 This repository is for learners on Corndel's DevOps apprenticeship.
