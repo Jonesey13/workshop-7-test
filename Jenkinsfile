@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'jonesey13/workshop-7' }
+        docker { 
+            alwaysPull true
+            image 'jonesey13/workshop-7' 
+        }
     }
     environment {
         DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
@@ -16,9 +19,32 @@ pipeline {
                 sh 'dotnet test'
             }
         }
+        stage('NPM Install') {
+            steps {
+                dir('DotnetTemplate.Web'){
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Typescript Build') {
             steps {
-                echo 'Deploying....'
+                dir('DotnetTemplate.Web'){
+                    sh 'npm run build'
+                }
+            }
+        }
+        stage('Typescript Lint') {
+            steps {
+                dir('DotnetTemplate.Web'){
+                    sh 'npm run lint'
+                }
+            }
+        }
+        stage('Typescript Tests') {
+            steps {
+                dir('DotnetTemplate.Web'){
+                    sh 'npm t'
+                }
             }
         }
     }
