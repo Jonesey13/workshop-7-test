@@ -96,6 +96,9 @@ You should amend your workflow file so that it:
 
 ### (Stretch goal) Slack notifications
 To make sure people are aware when there are issues with the build, it can be useful to send a slack notification at the end of the workflow.
+
+**Before attempting this step please create your own personal slack workspace. This is free and can be setup [here](https://slack.com/create).**
+
 1. Add a slack notification at the end of the workflow. To make this work you will need to use the slack app [incoming webhooks](https://softwire.slack.com/apps/A0F7XDUAZ-incoming-webhooks?next_id=0), make sure this has been installed in the slack workspace you're using.
 2. Make the workflow post a different message if the workflow failed, so that it's obvious if the workflow failed.
 3. Make the workflow post a different message if the workflow was cancelled.
@@ -134,6 +137,13 @@ See https://www.jenkins.io/doc/book/pipeline/jenkinsfile/ for details on how to 
 3. Builds the typescript code.
 4. Runs the linter on the typescript code.
 5. Runs the typescript tests.
+
+You have 2 options for install dotnet core & NPM inside jenkins:
+1. Make installation separate build stages
+    * This is not ideal as you will have to run the installation on each build
+2. [Specify a container to run the jenkins pipeline with dotnet core and NPM pre-installed](https://www.jenkins.io/doc/book/pipeline/docker/)
+    * There are some pre-built images for NPM (e.g. `node:14-alpine`) but for dotnet core you'll want to use either [Microsoft's dotnet core images](https://hub.docker.com/_/microsoft-dotnet-core-sdk) or [script the installation from a base image such as alpine linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux-alpine)
+    * Ideally you'd use the same build content for the entire pipeline but if it's easier you can specify an agent for each step of the pipeline (the downside of this approach is that you'll likely have to group all the C# steps into a single stage to avoid repeating the agent setup; similarly for NPM)
 
 #### Run the Jenkins job
 1. Commit and push your new Jenkinsfile.
