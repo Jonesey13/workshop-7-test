@@ -10,7 +10,7 @@ The repository we're going to be building on is [here](https://github.com/Cornde
 3. This should take you to a fork of the repository on your account, e.g. https://github.com/MyUser/DevOps-Course-Workshop-Module-07-08 where MyUser will be replaced by your username. 
 4. You can now clone and push to that repository as normal.
 
-### Step 2 - Setup the app
+### Step 2 - Set up the app
 
 This repository contains a minimal .NET Core app. You don't need to worry about exactly how the code works, but you should be able to build, test and run it. It uses [npm](https://www.npmjs.com/) which is a package manager for the Node JavaScript platform. 
 
@@ -29,7 +29,7 @@ This repository contains a minimal .NET Core app. You don't need to worry about 
 2. Run `npm t` inside the DotnetTemplate.Web folder. This will run the typescript tests in DotnetTemplate.Web/Scripts/spec. They're run using [Jasmine](https://jasmine.github.io/).
 3. Run `npm run lint` inside the DotnetTemplate.Web folder. This will run linting on the typescript code, using [eslint](https://eslint.org/).
 
-### Step 3 - Setup GitHub Actions
+### Step 3 - Set up GitHub Actions
 
 1. Create the config file for your continuous integration pipeline. This should be created in .github/workflows and you can name it whatever you like, although it needs to have a .yml extension, e.g. continuous-integration-workflow.yml.
 2. Implement a basic workflow:
@@ -49,7 +49,7 @@ jobs:
 5. You should see a table of workflows. This should have one entry with a name matching your latest commit message. Select this entry.
 6. On the next page click "Build and test" on the left. This should show you the full output of the workflow which ran when you pushed to your branch. See [the documentation](https://docs.github.com/en/actions/configuring-and-managing-workflows/managing-a-workflow-run) for more details on how to view the output from the workflow.
 
-See [the GitHub documentation](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs) for more details on how to setup GitHub Actions and https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions for more details on the syntax of the workflow file.
+See [the GitHub documentation](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-and-managing-workflow-files-and-runs) for more details on how to set up GitHub Actions and https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions for more details on the syntax of the workflow file.
 
 ### Step 4 - Add more actions
 Currently our workflow only checks out the code, which isn't that useful. We want to add some more useful steps to the workflow file. Each step in the workflow file either needs to:
@@ -108,7 +108,7 @@ Add a [workflow status badge](https://docs.github.com/en/actions/configuring-and
 ### Step 1 - Run Jenkins locally
 There are two options for running Jenkins locally, you can either install Jenkins or run it through docker. We would recommend running Jenkins through docker and the instructions for that are [here](https://www.jenkins.io/doc/book/installing/#docker).
 
-### Step 2 - Setup Jenkins
+### Step 2 - Set up Jenkins
 Once you've done the step above you should have Jenkins running on http://localhost:8080/. If you go to this url in a browser it should show you a setup page.
 1. Login with the password you got from the logs when starting Jenkins.
 2. Now you have the option to select some initial plugins. For now, make sure you tick the GitHub plugin. We won't need any others right away, and you can add more later.
@@ -117,7 +117,7 @@ Once you've done the step above you should have Jenkins running on http://localh
 
 You should now see the Jenkins dashboard. 
 
-### Step 3 - Setup a Jenkins build
+### Step 3 - Set up a Jenkins build
 We now want to get Jenkins to build our app. To do this you need to create a job on Jenkins for our app and create a [Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) in your repository to define what the job should do.
 
 #### Create a Jenkins job
