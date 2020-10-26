@@ -106,6 +106,9 @@ To make sure people are aware when there are issues with the build, it can be us
 ### (Stretch goal) Workflow status badge
 Add a [workflow status badge](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge) to your repository.
 
+### (Stretch goal) Change when the workflow is run
+Change your workflow so that it only runs when pushing to the main branch or by raising a PR. Is there a way to ensure that no one can update the main branch except through a PR that has passed the workflow?
+
 ## Part 2 (Jenkins)
 
 ### Step 1 - Run Jenkins locally
@@ -157,10 +160,5 @@ You have 2 options for installing .NET Core & npm inside jenkins:
 ### (Stretch goal) Slack notifications
 Like for the GitHub Actions workflow, add slack notification to the Jenkins job. To make this work you will need to use the slack app [jenkins ci](https://slack.com/apps/A0F7VRFKN-jenkins-ci?next_id=0), make sure this has been installed in the slack workspace you're using.
 
-### (Stretch goal) Build script
-Create a bash or bat script which will do the same as your GitHub Actions workflow and Jenkins job:
-1. Build the C# code.
-2. Run the C# tests.
-3. Build the typescript code.
-4. Run the linter on the typescript code.
-5. Run the typescript tests.
+### (Stretch goal) Create a Docker Compose file for Jenkins
+The jenkins container setup instructions [here](https://www.jenkins.io/doc/book/installing/#docker) involve running several docker commands in sequence which isn't ideal. Create a docker-compose file that will setup both containers and volumes by simply running `docker-compose up`.
