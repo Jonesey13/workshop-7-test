@@ -20,7 +20,7 @@ This repository contains a minimal .NET Core app. You don't need to worry about 
 
 #### Run
 1. Run `dotnet run` in the DotnetTemplate.Web folder. This will start the app.
-2. You can now see the website by going to [https://localhost:80/](https://localhost:80/). You should see something like the image below.
+2. You can now see the website by going to [https://localhost:5000/](https://localhost:80/). You should see something like the image below.
 
 ![Mini app](img/mini-app.png)
 
@@ -101,7 +101,7 @@ To make sure people are aware when there are issues with the build, it can be us
 3. Make the workflow post a different message if the workflow was cancelled.
 
 ### (Stretch goal) Workflow status badge
-Add a [workflow status badge](https://docs.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository) to your repository.
+Add a [workflow status badge](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge) to your repository.
 
 ## Part 2 (Jenkins)
 
