@@ -144,9 +144,8 @@ See https://www.jenkins.io/doc/book/pipeline/jenkinsfile/ for details on how to 
 You have 2 options for installing .NET Core & npm inside jenkins:
 1. Make installation separate build stages
     * This is not ideal as you will have to run the installation on each build
-2. [Specify a container to run the jenkins pipeline with .NET Core and npm pre-installed](https://www.jenkins.io/doc/book/pipeline/docker/)
+2. [Specify containers to run stages of the jenkins pipeline with .NET Core and npm pre-installed](https://www.jenkins.io/doc/book/pipeline/docker/)
     * There are some pre-built images for npm (e.g. `node:14-alpine`) but for .NET Core you'll want to use either [Microsoft's images](https://hub.docker.com/_/microsoft-dotnet-core-sdk) or [script the installation from a base image such as alpine linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux-alpine)
-    * Ideally you'd use the same build content for the entire pipeline but if it's easier you can specify an agent for each step of the pipeline (the downside of this approach is that you'll likely have to group all the C# steps into a single stage to avoid repeating the agent setup; similarly for npm)
 
 #### Run the Jenkins job
 1. Commit and push your new Jenkinsfile.
@@ -162,3 +161,6 @@ Like for the GitHub Actions workflow, add slack notification to the Jenkins job.
 
 ### (Stretch goal) Create a Docker Compose file for Jenkins
 The jenkins container setup instructions [here](https://www.jenkins.io/doc/book/installing/#docker) involve running several docker commands in sequence which isn't ideal. Create a docker-compose file that will setup both containers and volumes by simply running `docker-compose up`.
+
+### (Stretch goal) Use a Single Build Agent for the Jenkins Pipeline
+Can you create a single container that can be used as the sole build agent for the entire multistage Jenkins pipeline?
