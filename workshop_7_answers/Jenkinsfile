@@ -43,7 +43,7 @@ pipeline {
         }
         stage ('Dotnet') {
             agent {
-                docker { image 'mcr.microsoft.com/dotnet/core/sdk:3.1' }
+                docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
             }
             stages {
                 stage('Dotnet Build') {
