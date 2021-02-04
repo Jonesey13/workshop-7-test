@@ -6,4 +6,4 @@ USER jenkinsuser
 WORKDIR /home/jenkinsuser
 RUN curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
 ENV PATH="/home/jenkinsuser/.dotnet:${PATH}"
-RUN bash ./dotnet-install.sh
+RUN bash ./dotnet-install.sh --version 5.0.102
